@@ -3,7 +3,7 @@ export default function Hero() {
     <section className="relative overflow-hidden">
       <div />
       <div className="mx-auto grid max-w-7xl items-center gap-10 px-5 py-14 sm:py-20 md:min-h-[600px] md:grid-cols-[1.15fr_.85fr] lg:px-8">
-        <div className="hero-copy relative z-10 mx-auto max-w-2xl text-center md:mx-0 md:text-left">
+        <div className=" relative z-10 mx-auto max-w-2xl text-center md:mx-0 md:text-left">
           <h1 className="text-[34px] font-extrabold leading-[1.12] tracking-[-0.045em] text-[#10182b] sm:text-5xl md:text-[54px] lg:text-[64px]">
             Build Your Ideal
             <br />
