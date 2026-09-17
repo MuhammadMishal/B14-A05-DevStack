@@ -6,6 +6,7 @@ import Technologies from "./components/Technologies";
 import { technologies } from "./data/technologies";
 import type { Technology } from "./types/technology";
 import "react-toastify/dist/ReactToastify.css";
+import Footer from "./components/Footer";
 
 export default function App() {
   const [selectedTechnologies, setSelectedTechnologies] = useState<
@@ -44,6 +45,7 @@ export default function App() {
           onClear={clearStack}
         />
       </main>
+      <Footer />
       <ToastContainer
         position="bottom-right"
         autoClose={2600}
