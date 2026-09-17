@@ -1,11 +1,22 @@
 import type { Technology } from "../types/technology";
 import TechnologyCard from "./TechnologyCard";
+import YourStack from "./YourStack";
 
 interface TechnologiesProps {
   technologies: Technology[];
+  selectedTechnologies: Technology[];
+  onAdd: (technology: Technology) => void;
+  onRemove: (technology: Technology) => void;
+  onClear: () => void;
 }
 
-export default function Technologies({ technologies }: TechnologiesProps) {
+export default function Technologies({
+  technologies,
+  selectedTechnologies,
+  onAdd,
+  onRemove,
+  onClear,
+}: TechnologiesProps) {
   return (
     <section id="technologies" className="scroll-mt-4 pb-28 pt-12">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
@@ -22,9 +33,21 @@ export default function Technologies({ technologies }: TechnologiesProps) {
         <div className="mt-10 grid items-start gap-7 lg:grid-cols-[minmax(0,1fr)_280px]">
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {technologies.map((technology) => (
-              <TechnologyCard key={technology.id} technology={technology} />
+              <TechnologyCard
+                key={technology.id}
+                technology={technology}
+                isSelected={selectedTechnologies.some(
+                  (item) => item.id === technology.id,
+                )}
+                onAdd={onAdd}
+              />
             ))}
           </div>
+          <YourStack
+            selectedTechnologies={selectedTechnologies}
+            onRemove={onRemove}
+            onClear={onClear}
+          />
         </div>
       </div>
     </section>

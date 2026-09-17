@@ -1,17 +1,26 @@
-import { FaStar } from "react-icons/fa";
+import { FaCheck, FaStar } from "react-icons/fa";
 import type { Technology } from "../types/technology";
 
 interface TechnologyCardProps {
   technology: Technology;
+  isSelected: boolean;
+  onAdd: (technology: Technology) => void;
 }
 
-export default function TechnologyCard({ technology }: TechnologyCardProps) {
+export default function TechnologyCard({
+  technology,
+  isSelected,
+  onAdd,
+}: TechnologyCardProps) {
   const Icon = technology.icon;
 
   return (
     <article
-      className={`card rounded-2xl border bg-white transition duration-300 hover:-translate-y-1 
-  `}
+      className={`card rounded-2xl border bg-white transition duration-300 hover:-translate-y-1 ${
+        isSelected
+          ? "border-pink-400 shadow-[0_8px_22px_rgba(236,72,153,0.14)]"
+          : "border-slate-200/80 shadow-[0_4px_18px_rgba(30,41,59,0.04)] hover:shadow-[0_12px_30px_rgba(30,41,59,0.08)]"
+      }`}
     >
       <div className="card-body min-h-[282px] p-5">
         <div className="flex min-h-8 items-start justify-between">
@@ -47,9 +56,21 @@ export default function TechnologyCard({ technology }: TechnologyCardProps) {
         </div>
         <button
           type="button"
-          className={`btn btn-sm mt-1 min-h-10 w-full shadow-none disabled:cursor-not-allowed disabled:opacity-100 `}
+          onClick={() => onAdd(technology)}
+          disabled={isSelected}
+          className={`btn btn-sm mt-1 min-h-10 w-full shadow-none disabled:cursor-not-allowed disabled:opacity-100 ${
+            isSelected
+              ? "border-slate-200 bg-slate-200 text-slate-500"
+              : "border-[#0c1425] bg-[#0c1425] text-white hover:border-slate-800 hover:bg-slate-800"
+          }`}
         >
-          Add to Stack
+          {isSelected ? (
+            <>
+              <FaCheck /> Added to Stack
+            </>
+          ) : (
+            "Add to Stack"
+          )}
         </button>
       </div>
     </article>
