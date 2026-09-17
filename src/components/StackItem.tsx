@@ -15,7 +15,14 @@ export default function StackItem({ technology, onRemove }: StackItemProps) {
         <p className="truncate text-xs font-bold">{technology.name}</p>
         <p className="text-[9px] text-slate-400">{technology.category}</p>
       </div>
-      <button type="button" onClick={() => onRemove(technology)} className="btn btn-ghost btn-xs btn-square text-slate-400 hover:text-red-500" aria-label={`Remove ${technology.name}`}><MdClose className="text-xl" /></button>
+      <button
+        type="button"
+        onClick={() => onRemove(technology)}
+        className="btn btn-ghost btn-xs btn-square text-slate-400 hover:text-red-500"
+        aria-label={`Remove ${technology.name}`}
+      >
+        <MdClose className="text-xl" />
+      </button>
     </div>
   );
 }

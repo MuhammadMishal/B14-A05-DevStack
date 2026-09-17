@@ -16,7 +16,7 @@ export default function YourStack({
 
   return (
     <aside
-      className="card sticky top-6 rounded-2xl border border-slate-200 bg-white shadow-[0_4px_18px_rgba(30,41,59,0.05)]"
+      className="card sticky top-28 rounded-2xl border border-slate-200 bg-white shadow-[0_4px_18px_rgba(30,41,59,0.05)]"
       aria-live="polite"
     >
       <div className="card-body  p-5">

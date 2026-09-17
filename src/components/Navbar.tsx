@@ -6,7 +6,7 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="border-b border-slate-100 bg-white">
+    <header className="border-b border-slate-100 bg-white sticky top-0 left-0 right-0 z-10">
       <nav
         className="relative mx-auto flex h-20 max-w-7xl items-center justify-between gap-3 px-4 lg:px-8"
         aria-label="Main navigation"
